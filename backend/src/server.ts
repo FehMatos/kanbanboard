@@ -1,9 +1,9 @@
 import dotenv from "dotenv";
 import express, { Request, Response, NextFunction } from "express";
 import mongoose from "mongoose";
-import columnRoutes from "./routes/columns";
-import taskRoutes from "./routes/tasks";
-import userRoutes from "./routes/user";
+import columnRoutes from "./routes/columns.js";
+import taskRoutes from "./routes/tasks.js";
+import userRoutes from "./routes/user.js";
 import cors from "cors";
 
 dotenv.config();
@@ -11,9 +11,13 @@ dotenv.config();
 const app = express();
 
 app.use(express.json());
-app.use(cors());
 
-app.use(express.json());
+app.use(
+  cors({
+    origin: ["http://localhost:5173", "https://FehMatos.github.io"],
+    credentials: true,
+  })
+);
 
 app.use((req: Request, res: Response, next: NextFunction): void => {
   console.log(req.path, req.method);

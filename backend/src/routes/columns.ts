@@ -6,9 +6,9 @@ import {
   getColumn,
   deleteColumn,
   updateColumn,
-} from "../controllers/columnController";
+} from "../controllers/columnController.js";
 
-import requireAuth from "../middleware/requireAuth";
+import requireAuth from "../middleware/requireAuth.js";
 
 const router = express.Router();
 

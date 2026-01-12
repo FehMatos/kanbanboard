@@ -6,8 +6,8 @@ import {
   getTask,
   deleteTask,
   updateTask,
-} from "../controllers/taskController";
-import requireAuth from "../middleware/requireAuth";
+} from "../controllers/taskController.js";
+import requireAuth from "../middleware/requireAuth.js";
 
 const router = express.Router();
 router.use(requireAuth);

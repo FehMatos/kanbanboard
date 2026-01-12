@@ -1,6 +1,6 @@
-import Column from "../models/columnModel";
+import Column from "../models/columnModel.js";
 import mongoose from "mongoose";
-import Task from "../models/taskModel";
+import Task from "../models/taskModel.js";
 import { RequestHandler } from "express";
 
 interface CreateColumnBody {
