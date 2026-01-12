@@ -8,12 +8,14 @@ interface TaskProps {
 }
 
 function Task({ task, deleteTask }: TaskProps) {
-  const { attributes, listeners, setNodeRef, transform } = useDraggable({
-    id: task._id,
-  });
+  const { attributes, listeners, setNodeRef, transform, isDragging } =
+    useDraggable({
+      id: task._id,
+    });
 
   const style: React.CSSProperties = {
     transform: transform ? CSS.Translate.toString(transform) : undefined,
+    opacity: isDragging ? 0 : 1,
   };
 
   return (

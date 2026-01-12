@@ -62,6 +62,7 @@ export default function Board({
       },
     })
   );
+  const activeTaskData = tasks.find((t) => t._id === activeTask);
 
   return (
     <>
@@ -90,9 +91,13 @@ export default function Board({
               deleteTask={deleteTask}
             />
           ))}
-        </div>{" "}
+        </div>
         <DragOverlay>
-          {activeTask ? <div className="drag-overlay-task"></div> : null}
+          {activeTaskData ? (
+            <div className="task drag-overlay-task">
+              <p>{activeTaskData.description}</p>
+            </div>
+          ) : null}
         </DragOverlay>
       </DndContext>{" "}
       <form
