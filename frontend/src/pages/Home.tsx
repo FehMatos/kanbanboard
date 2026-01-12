@@ -203,12 +203,6 @@ function Home() {
   ): Promise<void> => {
     if (!user) return;
 
-    setTasks((prev) =>
-      prev.map((task) =>
-        task._id === taskId ? { ...task, column: targetColumnId } : task
-      )
-    );
-
     const tasksInColumn = tasks.filter(
       (t) => t.column === targetColumnId && t._id !== taskId
     );
@@ -228,8 +222,17 @@ function Home() {
     });
 
     if (!response.ok) {
-      setTasks((prev) => [...prev]);
+      console.error("Erro ao mover task");
+      return;
     }
+
+    setTasks((prev) =>
+      prev.map((task) =>
+        task._id === taskId
+          ? { ...task, column: targetColumnId, position: newPosition }
+          : task
+      )
+    );
   };
 
   return (

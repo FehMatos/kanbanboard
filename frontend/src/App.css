@@ -354,3 +354,8 @@ nav button:hover {
   justify-content: center;
   align-items: center;
 }
+.drag-overlay-task {
+  opacity: 0.85;
+  transform: rotate(2deg);
+  pointer-events: none;
+}

@@ -9,6 +9,7 @@ import {
   useSensor,
   useSensors,
   MouseSensor,
+  DragOverlay,
 } from "@dnd-kit/core";
 
 import type { BoardProps } from "../types/board";
@@ -89,7 +90,10 @@ export default function Board({
               deleteTask={deleteTask}
             />
           ))}
-        </div>
+        </div>{" "}
+        <DragOverlay>
+          {activeTask ? <div className="drag-overlay-task"></div> : null}
+        </DragOverlay>
       </DndContext>{" "}
       <form
         className="newColumn"
